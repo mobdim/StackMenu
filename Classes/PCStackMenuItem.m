@@ -54,7 +54,7 @@
 	{
 		CGRect rect = CGRectMake(alignment == UITextAlignmentLeft ? 0 : frame.size.width - frame.size.height, 0, frame.size.height, frame.size.height);
 		_stackIimageView = [[UIImageView alloc] initWithFrame:rect];
-		_stackIimageView.contentMode = UIViewContentModeScaleAspectFit;
+		_stackIimageView.contentMode = UIViewContentModeCenter;
 		_stackIimageView.image = image;
 		[self addSubview:_stackIimageView];
 
@@ -81,6 +81,9 @@
 		rect = _stackIimageView.frame;
 		rect.origin.x = alignment == UITextAlignmentLeft ? 0 : frame.size.width - frame.size.height;
 		_stackIimageView.frame = rect;
+        
+        _stackIimageView.frame = CGRectMake(0, _stackIimageView.frame.origin.y, _stackIimageView.frame.size.width, _stackIimageView.frame.size.height);
+        _stackTitleLabel.frame = CGRectMake(_stackIimageView.frame.size.width, _stackTitleLabel.frame.origin.y, _stackTitleLabel.frame.size.width, _stackTitleLabel.frame.size.height);
     }
     return self;
 }

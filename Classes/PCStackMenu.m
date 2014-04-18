@@ -131,8 +131,8 @@
 			CGRect r = stackItem.frame;
 			r.origin.y += i * r.size.height * (_menuDirection == PCStackMenuDirectionClockWiseUp || _menuDirection == PCStackMenuDirectionCounterClockWiseUp ? -1 : 1);
 			stackItem.frame = r;
-			CGPoint point = [self centerPointForRotation:stackItem];
-			stackItem.transform = CGAffineTransformMakeRotationAt(i * (_menuDirection == PCStackMenuDirectionClockWiseUp || _menuDirection == PCStackMenuDirectionClockWiseDown ? 2 : -2) * M_PI / 180, point);
+			CGPoint point = [self centerPointForRotation:stackItem]; point.x = point.x/2;
+			stackItem.transform = CGAffineTransformMakeRotationAt(i * (_menuDirection == PCStackMenuDirectionClockWiseUp || _menuDirection == PCStackMenuDirectionClockWiseDown ? 2 : -2) * M_PI / 45, point);
 			stackItem.alpha = 1.0;
 		}
     } completion:^(BOOL finished) {
